@@ -1,0 +1,32 @@
+﻿@page
+@model AspNetCoreInActionSecondEditionForMvc.Pages.TblDepartment.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2 class="text-primary">
+    Create
+</h2>
+<hr />
+
+<form method="post">
+    <div class="row form-group">
+        <label asp-for="Department.Name" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="Department.Name" class="form-control" placeholder="Department Name..." />
+            <span asp-validation-for="Department.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-outline-success">Create</button>
+            <a asp-page="/TblDepartment/Index" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </div>
+
+
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

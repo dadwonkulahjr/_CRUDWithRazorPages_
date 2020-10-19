@@ -1,0 +1,72 @@
+﻿@page
+@model AspNetCoreInActionSecondEditionForMvc.Pages.TblCity.IndexModel
+@{
+    ViewData["Title"] = "Address Details";
+}
+
+<h2 class="text-primary">
+    Address Details
+</h2>
+<hr />
+<div class="row">
+    <div class="ml-auto col-4 m-0">
+        <a asp-page="Create" class="btn btn-outline-primary w-100 mb-2 p-3">
+            Create
+        </a>
+
+    </div>
+</div>
+<div class="table-responsive">
+    @if (Model.City.Any())
+    {
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <td>Name</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var address in Model.City)
+                {
+                    <tr>
+                        <td>
+                            @address.Name
+                        </td>
+                        <td colspan="5">
+                            <a asp-page="Edit" asp-route-id="@address.Id" class="btn btn-outline-info border w-100">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-page="Delete" asp-route-id="@address.Id" class="btn btn-outline-danger border w-100">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-header">
+                    <h2>No record yet to display</h2>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Click the button below to add new record.
+                    </h5>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="Create" class="btn btn-secondary border p-3 w-25">
+                        Create
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

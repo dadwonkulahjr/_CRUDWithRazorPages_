@@ -1,0 +1,78 @@
+﻿@page
+@model AspNetCoreInActionSecondEditionForMvc.Pages.Employees.CreateModel
+@{
+    ViewData["Title"] = "Create Person";
+}
+
+<h2 class="text-primary">
+    Create
+</h2>
+<hr />
+<form method="post">
+    <div class="row form-group">
+        <label asp-for="TblPerson.Name" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="TblPerson.Name" class="form-control" placeholder="Name..." />
+            <span asp-validation-for="TblPerson.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <label asp-for="TblPerson.Email" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="TblPerson.Email" class="form-control" placeholder="Email..." />
+            <span asp-validation-for="TblPerson.Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <label asp-for="TblPerson.Age" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="TblPerson.Age" class="form-control" placeholder="Age..." />
+            <span asp-validation-for="TblPerson.Age" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <label asp-for="TblPerson.Gender.Name" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="TblPerson.Gender.Name" class="custom-select" asp-items="ViewBag.TblGenderId">
+                <option value="">Select gender</option>
+            </select>
+            <span asp-validation-for="TblPerson.Gender.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="row form-group">
+        <label asp-for="TblPerson.City.Name" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="TblPerson.City.Name" class="custom-select" asp-items="ViewBag.TblCityId">
+                <option value="">Select city</option>
+            </select>
+            <span asp-validation-for="TblPerson.City.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <label asp-for="TblPerson.Department.Name" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="TblPerson.Department.Name" class="custom-select" asp-items="ViewBag.TblDepartmentId">
+                <option value="">Select department</option>
+            </select>
+            <span asp-validation-for="TblPerson.Department.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-outline-success">Create</button>
+            <a asp-page="Index" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+
+
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
